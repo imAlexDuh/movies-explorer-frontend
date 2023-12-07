@@ -28,31 +28,31 @@ export default function App() {
     setIsCircleOpened(!isCircleOpened);
   }
 
-  return(
+  return (
     <div className="app">
       {
-      (
-        <CurrentUserContext.Provider value={currentUser}>
-          <Header 
-            loggedIn={isLoggedIn}
-            handleCircleClick={handleCircleClick}
-            isCircleOpened={isCircleOpened}
-          />
-          <Routes>
-            <Route exact path='/' element={<Main />} />
+        (
+          <CurrentUserContext.Provider value={currentUser}>
+            <Header
+              loggedIn={isLoggedIn}
+              handleCircleClick={handleCircleClick}
+              isCircleOpened={isCircleOpened}
+            />
+            <Routes>
+              <Route exact path='/' element={<Main />} />
 
-            <Route path="/signup" element={!isLoggedIn ? <Register /> : <Navigate to="/" />} />
-            <Route path="/signin" element={!isLoggedIn ? <Login /> : <Navigate to="/" />} />
+              <Route path="/signup" element={!isLoggedIn ? <Register /> : <Navigate to="/" />} />
+              <Route path="/signin" element={!isLoggedIn ? <Login /> : <Navigate to="/" />} />
 
-            <Route path="/movies" element={<Movies/>} />
-            <Route path="/saved-movies" element={<SavedMovies/>} />
-            <Route path="/profile" element={<Profile/>} />
-            <Route path="/404" element={<NotFound />} > </Route>
+              <Route path="/movies" element={<Movies />} />
+              <Route path="/saved-movies" element={<SavedMovies />} />
+              <Route path="/profile" element={<Profile />} />
+              <Route path="/404" element={<NotFound />} > </Route>
 
-          </Routes>
-          <Footer />
-      </CurrentUserContext.Provider>
-      )}
+            </Routes>
+            <Footer />
+          </CurrentUserContext.Provider>
+        )}
     </div>
   );
 }
