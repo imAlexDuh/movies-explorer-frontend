@@ -1,3 +1,1 @@
-# movies-explorer-frontend
-
-макет: light-1
+aboba
