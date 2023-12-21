@@ -6,7 +6,7 @@ import Circle from '../Circle/Circle';
 export default function Navigation({ loggedIn, handleCircleClick, isCircleOpened }) {
 
     const location = useLocation();
-    const isMobile = useMediaQuery({ query: `(max-width: 880px)` });
+    const isMobile = useMediaQuery({ query: `(max-width: 900px)` });
     const accountTheme = `navigation__account_theme_${location.pathname !== '/' || isMobile ? 'light' : 'green'}`;
     const activeLink = `navigation__link_active_${isCircleOpened ? 'mobile' : 'desktop'}`;
 

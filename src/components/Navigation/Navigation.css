@@ -103,7 +103,7 @@
     border-radius: 3px;
 }
 
-@media screen and (max-width: 880px) {
+@media screen and (max-width: 900px) {
     .navigation__item>.navigation__link {
         font-weight: 500;
         font-size: 18px;
@@ -169,7 +169,7 @@
     }
 }
 
-@media screen and (max-width: 580px) {
+@media screen and (max-width: 600px) {
     .navigation__links {
         gap: 24px;
     }

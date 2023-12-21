@@ -16,13 +16,13 @@ import NotFound from '../NotFound/NotFound'
 
 
 export default function App() {
-  const [currentUser, setCurrentUser] = React.useState({
+  const [currentUser] = React.useState({ // добавить
     name: 'Виталий',
     email: 'mail@mail.ru'
   });
 
   const [isCircleOpened, setIsCircleOpened] = React.useState(false);
-  const [isLoggedIn, setIsLoggedIn] = React.useState(false);
+  const [isLoggedIn] = React.useState(false); // добавить
 
   function handleCircleClick() {
     setIsCircleOpened(!isCircleOpened);

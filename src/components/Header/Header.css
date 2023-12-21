@@ -1,3 +1,9 @@
+.header {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
 .header_theme_dark {
     color: #FFFFFF;
     background-color: #073042;
@@ -7,17 +13,30 @@
     gap: 16px;
     padding-top: 18px;
     padding-bottom: 18px;
+    padding-right: 70px;
+    padding-left: 70px;
+    display: flex;
     justify-content: space-between;
     position: relative;
+    box-sizing: border-box;
+    max-width: 1280px;
+    width: 100%;
 }
 
 .logo {
     height: 38px;
 }
 
-@media screen and (max-width: 880px) {
+@media screen and (max-width: 900px) {
     .header__container {
-        padding-top: 18px;
-        padding-bottom: 18px;
+        padding-right: 50px;
+        padding-left: 50px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .header__container {
+        padding-right: 18px;
+        padding-left: 18px;
     }
 }

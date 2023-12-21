@@ -5,6 +5,19 @@
 .movies__container {
     width: 100%;
     display: flex;
-    align-items: center;
     flex-direction: column;
 }
+
+@media screen and (max-width: 800px) {
+    .movies__container {
+        padding-right: 30px;
+        padding-left: 30px;
+    }
+  }
+
+@media screen and (max-width: 400px) {
+    .movies__container {
+        padding-right: 10px;
+        padding-left: 10px;
+    }
+  }

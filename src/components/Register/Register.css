@@ -12,6 +12,8 @@
     height: calc(100vh);
     padding-top: 70px;
     padding-bottom: 70px;
+    display: flex;
+    justify-content: center;
 }
 
 .logo_place_auth {
@@ -21,8 +23,7 @@
 .auth__title {
     font-size: 24px;
     font-weight: 500;
-    line-height: 29px;
-    letter-spacing: 0em;
+    line-height: 29.05px;
     text-align: center;
     height: min-content;
     padding: 0;
@@ -32,7 +33,7 @@
 .form__auth-field {
     font-weight: 400;
     font-size: 10px;
-    line-height: 1.2;
+    line-height: 12.1px;
     min-height: 44px;
     margin: 0;
     color: #A0A0A0;
@@ -48,7 +49,7 @@
     flex-direction: column;
     align-items: baseline;
     position: relative;
-    gap: 34px;
+    gap: 24px;
     border: none;
     margin: 0;
     padding: 0;
@@ -57,7 +58,7 @@
 .field__caption {
     margin: 0;
     padding: 0;
-    line-height: 1.2;
+    line-height: 12.1px;
 }
 
 .form__input_place_auth {
@@ -66,7 +67,7 @@
     border-bottom: 1px solid #E8E8E8;
     margin-top: 5px;
     font-size: 14px;
-    line-height: 1.2;
+    line-height: 16.94px;
     padding: 0 0 10px 0;
 }
 
@@ -127,11 +128,9 @@
 .button_place_auth {
     font-size: 14px;
     font-weight: 500;
-    line-height: 17px;
-    letter-spacing: 0em;
+    line-height: 16.94px;
     background: #3456F3;
     color: #fff;
-    text-align: center;
     width: 100%;
     border: none;
     padding: 13px 0;
@@ -149,17 +148,15 @@
 }
 
 .buttons_place_auth {
-    margin-top: 135px;
+    margin-top: 69px;
 }
 
 .auth__help {
     font-size: 14px;
     font-weight: 400;
-    line-height: 17px;
-    letter-spacing: 0em;
+    line-height: 16.94px;
     text-align: center;
     color: #A0A0A0;
-    text-align: center;
 }
 
 .auth__link {
@@ -172,7 +169,7 @@
     position: relative;
 }
 
-@media screen and (max-width: 880px) {
+@media screen and (max-width: 900px) {
     .auth {
         display: flex;
         justify-content: center;
@@ -189,7 +186,7 @@
     }
 }
 
-@media screen and (max-width: 580px) {
+@media screen and (max-width: 600px) {
     .auth {
         padding: 56px 30px 30px;
     }

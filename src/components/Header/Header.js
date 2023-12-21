@@ -11,9 +11,9 @@ export default function Header({ loggedIn, handleCircleClick, isCircleOpened }) 
     if (headerEndpoints.includes(location.pathname))
         return (
             <header
-                className={`section header ${location.pathname === '/' && 'header_theme_dark'
+                className={`header ${location.pathname === '/' && 'header_theme_dark'
                     }`}>
-                <div className='section__container header__container'>
+                <div className='header__container'>
                     <Link to='/' className='logo link'>
                         <img src={logo} alt="лого" />
                     </Link>

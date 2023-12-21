@@ -7,7 +7,7 @@ export default function Profile() {
 
     const currentUser = React.useContext(CurrentUserContext);
     return (
-        <main className="section profile">
+        <main className="profile">
             <div className='profile__container'>
                 <h1 className='profile__title'>{`Привет, ${currentUser.name}!`}</h1>
                 <form name="profile" className='form form_place_profile'>

@@ -1,7 +1,29 @@
+.about {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
 .about__container {
     padding-top: 110px;
     padding-bottom: 110px;
+    padding-right: 70px;
+    padding-left: 70px;
+    display: flex;
     flex-direction: column;
+    box-sizing: border-box;
+    max-width: 1280px;
+    width: 100%;
+}
+
+.about__title {
+    margin: 0;
+    padding: 0 0 23px;
+    width: 100%;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 1.21;
+    border-bottom: 1px solid #000;
 }
 
 .about__subtitle {
@@ -47,11 +69,11 @@
     align-items: center;
 }
 
-.timeline__one-week {
+.timeline__one {
     background-color: #2BE080;
 }
 
-.timeline__four-weeks {
+.timeline__four {
     background-color: #F2F2F2;
 }
 
@@ -64,7 +86,7 @@
     color: #A0A0A0;
 }
 
-@media screen and (max-width: 880px) {
+@media screen and (max-width: 900px) {
     .timeline__bottom {
         font-weight: 400;
     }
@@ -72,14 +94,16 @@
     .about__container {
         padding-top: 90px;
         padding-bottom: 90px;
-    }
-
-    .about__texts {
-        margin: 70px 0 93px;
+        padding-right: 50px;
+        padding-left: 50px;
     }
 
     .about__subtitle {
         margin-bottom: 22px;
+    }
+
+    .about__texts {
+        margin: 70px 0 93px;
     }
 
     .about__description {
@@ -89,7 +113,7 @@
 }
 
 
-@media screen and (max-width: 580px) {
+@media screen and (max-width: 600px) {
     .timeline {
         grid-template-columns: 35% 65%;
         font-size: 11px;
@@ -99,17 +123,26 @@
     .about__container {
         padding-top: 70px;
         padding-bottom: 70px;
+        padding-right: 18px;
+        padding-left: 18px;
+    }
+
+    .about__title {
+        line-height: 22px;
+        padding-bottom: 28px;
+        font-size: 18px;
+        font-weight: 400;
+    }
+
+    .about__subtitle {
+        font-size: 18px;
+        line-height: 1.2;
     }
 
     .about__texts {
         margin: 60px 0;
         flex-direction: column;
         gap: 56px;
-    }
-
-    .about__subtitle {
-        font-size: 18px;
-        line-height: 1.2;
     }
 
     .about__description {

@@ -1,18 +1,17 @@
 import './Movies.css';
-import SearchForm from '../SearchForm/SearchForm';
-import Preloader from '../Preloader/Preloader';
-import MoviesCardList from '../MoviesCardList/MoviesCardList';
-import { testCards } from '../../utils/constants'
+import SearchForm from '../SearchForm/SearchForm.js';
+import Preloader from '../Preloader/Preloader.js';
+import MoviesCardList from '../MoviesCardList/MoviesCardList.js';
 
-const emptyCards = []
+import { movies } from '../../utils/constants.js'
+const moviesArray = []
 
 export default function Movies({ isLoading }) {
     return (
         <main className="movies">
             <div className="movies__container">
                 <SearchForm />
-                {isLoading ? <Preloader /> : <MoviesCardList cards={testCards} />}
-
+                {isLoading ? <Preloader /> : <MoviesCardList movies={movies} />}
             </div>
         </main>
     );

@@ -4,6 +4,8 @@
     box-sizing: border-box;
     width: 100%;
     height: calc(100vh - 74px);
+    display: flex;
+    justify-content: center;
 }
 
 .profile__container {
@@ -17,8 +19,7 @@
 .profile__title {
     font-size: 24px;
     font-weight: 500;
-    line-height: 29px;
-    letter-spacing: 0em;
+    line-height: 29.05px;
     height: min-content;
     text-align: center;
     padding: 0;
@@ -54,9 +55,7 @@
     border-bottom: 1px solid #E8E8E8;
     font-weight: 500;
     font-size: 11px;
-    line-height: 1.2px;
-    letter-spacing: 0px;
-    text-align: left;
+    line-height: 13.31px;
 }
 
 .field_type_last {
@@ -75,7 +74,6 @@
 .form__input:focus {
     outline: none;
     border-bottom: 1px solid #3456F3;
-    margin-bottom: -1px;
 }
 
 .buttons {
@@ -103,15 +101,14 @@
     padding: 0;
     font-size: 13px;
     font-weight: 400;
-    line-height: 1.2px;
-    letter-spacing: 0px;
+    line-height: 15.73px;
 }
 
 .form__button_type_logout {
     color: #FF3055;
 }
 
-@media screen and (max-width: 880px) {
+@media screen and (max-width: 900px) {
     .form_place_profile {
         margin-top: 96px;
     }
@@ -125,7 +122,7 @@
     }
 }
 
-@media screen and (max-width: 580px) {
+@media screen and (max-width: 600px) {
     .form_place_profile {
         margin-top: 80px;
     }
