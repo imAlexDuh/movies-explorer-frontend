@@ -22,7 +22,7 @@ export default function MoviesCardList({ movies, isLoading }) {
                     ))}
                 </ul>
                 {movies.length > showMovies ? (
-                    <button className="button movies__button">Ещё</button>
+                    <button type="button" className="button movies__button">Ещё</button>
                 ) : (
                     ''
                 )}

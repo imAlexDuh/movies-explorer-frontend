@@ -35,7 +35,7 @@ export default function Navigation({ loggedIn, handleCircleClick, isCircleOpened
                 <nav className={`navigation navigation_state_${isCircleOpened ? 'opened' : 'closed'}`} onClick={isCircleOpened ? handleCircleClick : undefined}>
                     <Circle isCircleOpened={isCircleOpened} handleCircleClick={handleCircleClick} />
                     <ul className={`navigation__list navigation__list_logged navigation__list_state_${isCircleOpened ? 'opened' : 'closed'}`} onClick={handleClickOverlay}>
-                        <div className="navigation__links">
+                        <ul className="navigation__links">
                             {isCircleOpened && (
                                 <li className="navigation__item">
                                     <NavLink to='/' className={({ isActive }) => isActive ? 'navigation__link link ' + activeLink : 'navigation__link link'}>
@@ -53,7 +53,7 @@ export default function Navigation({ loggedIn, handleCircleClick, isCircleOpened
                                     Сохранённые фильмы
                                 </NavLink>
                             </li>
-                        </div>
+                        </ul>
                         <li className="navigation__item">
                             <Link className={`navigation__account ${accountTheme} link`} to='/profile'>
                                 <span>Аккаунт</span>
