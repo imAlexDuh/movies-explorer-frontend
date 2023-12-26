@@ -170,6 +170,10 @@
 }
 
 @media screen and (max-width: 600px) {
+    .navigation__list {
+        gap: 14px;
+    }
+
     .navigation__links {
         gap: 24px;
     }

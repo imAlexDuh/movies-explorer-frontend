@@ -7,8 +7,8 @@ export default function MoviesCardList({ movies, isLoading }) {
     const showMovies = useMediaQuery({ query: `(max-width: 900px)` }) ? 5 : 16;
 
     return (
-        <div className="movies__cards">
-            <div className='movies__list'>
+        <div className="movies__section">
+            <div className='movies-list__container'>
                 {movies.length === 0 &&
                     (
                         <p className="searching__error">Не найдено</p>

@@ -109,6 +109,10 @@
 }
 
 @media screen and (max-width: 900px) {
+    .profile {
+        padding-top: 236px;
+    }
+
     .form_place_profile {
         margin-top: 96px;
     }
@@ -118,7 +122,7 @@
     }
 
     .buttons_place_profile {
-        margin: 210px 0 0;
+        margin: 194px 0 269px;
     }
 }
 

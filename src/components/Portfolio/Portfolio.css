@@ -61,8 +61,8 @@
 
 @media screen and (max-width: 900px) {
     .portf__container {
-        padding-bottom: 90x;
-        padding-right: 50px;
+        padding-bottom: 90px;
+        padding-right: 54px;
         padding-left: 50px;
     }
 
@@ -71,7 +71,7 @@
     }
 
     .portf__item-icon {
-        width: 27px;
+        width: 18px;
     }
 }
 
@@ -80,7 +80,7 @@
         gap: 40px;
         padding-bottom: 70px;
         padding-right: 18px;
-        padding-left: 18px;
+        padding-left: 14px;
     }
 
     .portf__subtitle {
@@ -94,6 +94,6 @@
     }
 
     .portf__item-icon {
-        width: 18px;
+        width: 12px;
     }
 }

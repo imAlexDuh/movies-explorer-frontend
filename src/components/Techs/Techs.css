@@ -110,6 +110,13 @@
         padding-bottom: 70px;
     }
 
+    .tech__title {
+        font-size: 18px;
+        line-height: 21.78px;
+        letter-spacing: -0.04em;
+        padding-bottom: 28px;
+    }
+
     .tech__container {
         padding-right: 18px;
         padding-left: 18px;

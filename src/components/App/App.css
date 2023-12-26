@@ -9,7 +9,6 @@
     flex-direction: column;
     position: relative;
     font-family: 'Inter', Arial, sans-serif;
-    overflow: hidden;
   }
   
   .link {

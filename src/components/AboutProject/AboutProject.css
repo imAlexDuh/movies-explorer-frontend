@@ -122,7 +122,7 @@
 
     .about__container {
         padding-top: 70px;
-        padding-bottom: 70px;
+        padding-bottom: 60px;
         padding-right: 18px;
         padding-left: 18px;
     }
@@ -137,6 +137,7 @@
     .about__subtitle {
         font-size: 18px;
         line-height: 1.2;
+        margin-bottom: 16px;
     }
 
     .about__texts {

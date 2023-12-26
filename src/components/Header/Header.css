@@ -29,14 +29,14 @@
 
 @media screen and (max-width: 900px) {
     .header__container {
-        padding-right: 50px;
-        padding-left: 50px;
+        padding-right: 30px;
+        padding-left: 30px;
     }
 }
 
 @media screen and (max-width: 600px) {
     .header__container {
-        padding-right: 18px;
-        padding-left: 18px;
+        padding-right: 14px;
+        padding-left: 14px;
     }
 }

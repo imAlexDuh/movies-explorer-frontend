@@ -1,71 +1,77 @@
-.movies {
-    padding: 70px 0 80px;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-  }
-  
-  .movies__list {
-    box-sizing: border-box;
-    max-width: 1280px;
-    width: 100%;
-    padding-right: 70px;
-    padding-left: 70px;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-  }
-  
-  .movies__items {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
-    justify-content: center;
-    width: 100%;
-    padding: 0;
-    margin: 0 0 10px;
-    column-gap: 20px;
-    row-gap: 38px;
-  }
-  
-  .movies__item {
-    list-style-type: none;
-  }
-  
-  .movies__button {
-    text-align: center;
-    border: none;
-    background: #F9F9F9;
-    width: 320px;
-    min-height: 36px;
-    font-size: 12px;
-    font-weight: 500;
-    padding: 0;
-    margin: 50px 0 0;
-    line-height: 1.2;
-    letter-spacing: 0px;
-  }
-  
-  .searching__error {
-    color: #FF3055;
-    margin: 0;
-    padding: 0;
-    line-height: 1.2;
-    font-size: 16px;
+.movies__section {
+  width: 100%;
+  margin: 0;
+  padding: 70px 0 80px;
+}
+
+.movies-list__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  width: 100%;
+  padding-right: 70px;
+  padding-left: 70px;
+}
+
+.movies__items {
+  padding: 0 0 10px;
+  margin: 0;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+  row-gap: 38px;
+  column-gap: 20px;
+  justify-content: center;
+}
+
+.movies__item {
+  list-style-type: none;
+}
+
+.movies__button {
+  text-align: center;
+  border: none;
+  background: #F9F9F9;
+  width: 320px;
+  min-height: 36px;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 0;
+  margin: 50px 0 0;
+  line-height: 1.2;
+  letter-spacing: 0px;
+}
+
+.searching__error {
+  color: #FF3055;
+  margin: 0;
+  padding: 0;
+  line-height: 1.2;
+  font-size: 16px;
+}
+
+@media screen and (max-width: 900px) {
+  .movies-list__container {
+    padding-right: 0px;
+    padding-left: 0px;
   }
 
-  @media screen and (max-width: 800px) {
-    .movies__list {
-      padding-right: 0px;
-      padding-left: 0px;
-    }
+  .movies__items {
+    gap: 30px;
   }
-  
-  @media screen and (max-width: 600px) {
-    .movies {
-      padding: 40px 0 80px;
-    }
-  
-    .movies__button {
-      width: 240px;
-    }
+}
+
+@media screen and (max-width: 600px) {
+  .movies__section {
+    padding: 40px 0 80px;
   }
+
+  .movies__button {
+    width: 240px;
+  }
+
+  .movies__items {
+    gap: 34px;
+  }
+}

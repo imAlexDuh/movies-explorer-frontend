@@ -103,9 +103,10 @@
     .promo__container {
         padding-top: 70px;
         padding-bottom: 30px;
-        padding-right: 18px;
-        padding-left: 18px;
+        padding-right: 10px;
+        padding-left: 10px;
         gap: 44px;
+        letter-spacing: -0.04em;
     }
 
     .promo__logotype {
@@ -113,12 +114,21 @@
         height: 206px;
     }
 
+    .promo__about {
+        gap: 24px;
+    }
+
     .promo__title {
         font-size: 30px;
         line-height: 38px;
     }
 
+    .promo__text {
+        padding-right: 30px;
+        padding-left: 30px;
+    }
+
     .promo__link {
-        margin-top: 58px;
+        margin-top: 56px;
     }
 }
