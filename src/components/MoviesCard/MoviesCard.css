@@ -1,0 +1,63 @@
+.movie:hover {
+    cursor: pointer;
+    display: block;
+}
+
+.movie__button {
+    height: 24px;
+    padding: 0;
+    margin: 0;
+    width: 24px;
+    background-size: contain;
+    border: none;
+}
+
+
+.movie__description {
+    min-height: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #E8E8E8;
+    padding: 6px 0 26px;
+}
+
+.movie__img {
+    width: 100%;
+    object-fit: cover;
+}
+
+.movie__title {
+    padding: 0;
+    margin: 0;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 16px;
+}
+
+.movie__duration {
+    color: #A0A0A0;
+    padding: 6px 0 0;
+    font-size: 11px;
+    font-weight: 400;
+    line-height: 1.2;
+}
+
+.movie__button_type_saved {
+    background: url('../../images/save-button.svg');
+}
+
+.movie__button_type_not-saved {
+    background: url('../../images/not-saved.svg');
+}
+
+@media screen and (max-width: 600px) {
+    .movie__title {
+        font-size: 12px;
+        line-height: 1.2;
+    }
+
+    .movie__duration {
+        font-size: 10px;
+    }
+}

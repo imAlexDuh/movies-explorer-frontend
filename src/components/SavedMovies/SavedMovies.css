@@ -1,0 +1,4 @@
+.movie__button_type_delete {
+    display: block;
+    background: url('../../images/delete-button.svg');
+}

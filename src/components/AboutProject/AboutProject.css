@@ -1,0 +1,153 @@
+.about {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.about__container {
+    padding-top: 110px;
+    padding-bottom: 110px;
+    padding-right: 70px;
+    padding-left: 70px;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    max-width: 1280px;
+    width: 100%;
+}
+
+.about__title {
+    margin: 0;
+    padding: 0 0 23px;
+    width: 100%;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 1.21;
+    border-bottom: 1px solid #000;
+}
+
+.about__subtitle {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 1.21;
+    margin: 0 0 26px;
+    padding: 0;
+}
+
+.about__texts {
+    gap: 30px;
+    margin: 70px 0 110px;
+    padding: 0;
+    display: flex;
+}
+
+.about__text {
+    list-style-type: none;
+}
+
+.about__description {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    margin: 0;
+    padding: 0;
+}
+
+.timeline {
+    display: grid;
+    grid-template-columns: 20% 80%;
+    grid-template-rows: 36px 36px;
+    text-align: center;
+    font-size: 14px;
+    line-height: 17px;
+}
+
+.timeline__line {
+    display: flex;
+    margin: 0;
+    justify-content: center;
+    align-items: center;
+}
+
+.timeline__one {
+    background-color: #2BE080;
+}
+
+.timeline__four {
+    background-color: #F2F2F2;
+}
+
+.timeline__top {
+    font-weight: 400;
+}
+
+.timeline__bottom {
+    font-weight: 500;
+    color: #A0A0A0;
+}
+
+@media screen and (max-width: 900px) {
+    .timeline__bottom {
+        font-weight: 400;
+    }
+
+    .about__container {
+        padding-top: 90px;
+        padding-bottom: 90px;
+        padding-right: 50px;
+        padding-left: 50px;
+    }
+
+    .about__subtitle {
+        margin-bottom: 22px;
+    }
+
+    .about__texts {
+        margin: 70px 0 93px;
+    }
+
+    .about__description {
+        font-size: 12px;
+        line-height: 1.5;
+    }
+}
+
+
+@media screen and (max-width: 600px) {
+    .timeline {
+        grid-template-columns: 35% 65%;
+        font-size: 11px;
+        line-height: 1.2;
+    }
+
+    .about__container {
+        padding-top: 70px;
+        padding-bottom: 60px;
+        padding-right: 18px;
+        padding-left: 18px;
+    }
+
+    .about__title {
+        line-height: 22px;
+        padding-bottom: 28px;
+        font-size: 18px;
+        font-weight: 400;
+    }
+
+    .about__subtitle {
+        font-size: 18px;
+        line-height: 1.2;
+        margin-bottom: 16px;
+    }
+
+    .about__texts {
+        margin: 60px 0;
+        flex-direction: column;
+        gap: 56px;
+    }
+
+    .about__description {
+        font-size: 11px;
+        line-height: 16px;
+    }
+}
