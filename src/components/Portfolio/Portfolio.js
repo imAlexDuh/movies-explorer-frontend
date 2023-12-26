@@ -9,21 +9,21 @@ export default function Portfolio() {
                 <ul className='portf__items'>
 
                     <li className='portf__item'>
-                        <a className='portf__link link ' href="https://github.com/imAlexDuh" target='_blank' rel="noreferrer">
+                        <a className='portf__link link ' href="https://github.com/imAlexDuh/how-to-learn" target='_blank' rel="noreferrer">
                             Статичный сайт
                             <img className='portf__item-icon' src={arrow} alt='стрелка' />
                         </a>
                     </li>
 
                     <li className='portf__item'>
-                        <a className='portf__link link ' href="https://github.com/imAlexDuh" target='_blank' rel="noreferrer">
+                        <a className='portf__link link ' href="https://github.com/imAlexDuh/russian-travel" target='_blank' rel="noreferrer">
                             Адаптивный сайт
                             <img className='portf__item-icon' src={arrow} alt='стрелка' />
                         </a>
                     </li>
 
                     <li className='portf__item'>
-                        <a className='portf__link link' href="https://github.com/imAlexDuh" target='_blank' rel="noreferrer">
+                        <a className='portf__link link' href="https://github.com/imAlexDuh/mesto" target='_blank' rel="noreferrer">
                             Одностраничное приложение
                             <img className='portf__item-icon' src={arrow} alt='стрелка' />
                         </a>

@@ -8,7 +8,7 @@ export default function MoviesCardList({ movies, isLoading }) {
 
     return (
         <div className="movies__section">
-            <div className='movies-list__container'>
+            <div className='movies__list'>
                 {movies.length === 0 &&
                     (
                         <p className="searching__error">Не найдено</p>

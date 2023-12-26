@@ -16,16 +16,21 @@ import NotFound from '../NotFound/NotFound'
 
 
 export default function App() {
-  const [currentUser] = React.useState({ // добавить
+  const [currentUser, setCurrentUser] = React.useState({
     name: 'Виталий',
     email: 'mail@mail.ru'
   });
 
   const [isCircleOpened, setIsCircleOpened] = React.useState(false);
-  const [isLoggedIn] = React.useState(false); // добавить
+  const [isLoggedIn, setIsLoggedIn] = React.useState(true);
 
   function handleCircleClick() {
     setIsCircleOpened(!isCircleOpened);
+  }
+
+  function handleSignOut() {
+    setIsLoggedIn(false);
+    setCurrentUser({});
   }
 
   return (
@@ -46,7 +51,14 @@ export default function App() {
 
               <Route path="/movies" element={<Movies />} />
               <Route path="/saved-movies" element={<SavedMovies />} />
-              <Route path="/profile" element={<Profile />} />
+              <Route path="/profile" element={
+                isLoggedIn ?
+                  <Profile
+                    element={Profile}
+                    isLoggedIn={isLoggedIn}
+                    handleSignOut={handleSignOut}
+                  /> :
+                  <Navigate to="/" />} />
               <Route path="/404" element={<NotFound />} > </Route>
 
             </Routes>

@@ -50,13 +50,13 @@ export const movies = [
     image: movie6,
     name: 'Книготорговцы',
     duration: '1ч 42м',
-    isSaved: false,
+    isSaved: true,
   },
   {
     image: movie7,
     name: 'Когда я думаю о Германии ночью',
     duration: '1ч 42м',
-    isSaved: false,
+    isSaved: true,
   },
   {
     image: movie8,

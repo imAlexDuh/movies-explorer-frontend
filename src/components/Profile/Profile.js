@@ -2,7 +2,7 @@ import './Profile.css';
 import React from 'react';
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 
-export default function Profile() {
+export default function Profile({handleSignOut}) {
 
 
     const currentUser = React.useContext(CurrentUserContext);
@@ -52,6 +52,7 @@ export default function Profile() {
                             <button
                                 type="submit"
                                 className="button form__button form__button_type_logout"
+                                onClick={handleSignOut}
                             >
                                 Выйти из аккаунта
                             </button>
