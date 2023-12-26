@@ -16,6 +16,7 @@ export default function Profile({handleSignOut}) {
                             Имя
                             <input
                                 className='form__input form__input_place_profile form__input_type_name'
+                                placeholder="Имя"
                                 name="name"
                                 id="name"
                                 type="text"
@@ -30,6 +31,7 @@ export default function Profile({handleSignOut}) {
                             E-mail
                             <input
                                 className='form__input form__input_place_profile form__input_type_email'
+                                placeholder="Почта"
                                 name="email"
                                 id="email"
                                 type="email"

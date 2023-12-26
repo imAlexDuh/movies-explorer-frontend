@@ -21,6 +21,7 @@ export default function Register() {
                             <span className='field__caption'>Имя</span>
                             <input
                                 className='form__input form__input_place_auth form__input_type_name'
+                                placeholder="Ваше имя"
                                 name="name"
                                 id="name"
                                 type="text"
@@ -35,6 +36,7 @@ export default function Register() {
                             <span className='field__caption'>E-mail</span>
                             <input
                                 className='form__input form__input_place_auth form__input_type_email'
+                                placeholder="Ваша почта"
                                 name="email"
                                 id="email"
                                 type="email"
@@ -44,12 +46,15 @@ export default function Register() {
                             </input>
                         </label>
                         <label className='field form__auth-field field_type_last'>
-                            <span className='field__caption'>Пароль</span>
+                            <span className='field__caption'>Придумайте пароль</span>
                             <input
                                 className='form__input form__input_place_auth form__input_type_password'
+                                placeholder="Пароль"
                                 name="password"
                                 id="password"
                                 type="password"
+                                minLength="2"
+                                maxLength="40"
                                 required
                                 onChange={handleInputChange}
                             >

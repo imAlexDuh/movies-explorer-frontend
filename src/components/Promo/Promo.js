@@ -10,7 +10,7 @@ export default function Promo() {
                     <p className='promo__text'>Листайте ниже, чтобы узнать больше про этот проект и его создателя.</p>
                     <a className='promo__link button' target='_blank' rel="noreferrer" href='https://github.com/imAlexDuh'>Узнать больше</a>
                 </div>
-                <img className='promo__logotype' src={logotype} alt="webwebbweb" />
+                <img className='promo__logotype' src={logotype} alt="картинка с web'ами" />
             </div>
         </section>
     )

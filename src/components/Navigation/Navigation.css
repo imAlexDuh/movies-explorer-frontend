@@ -168,9 +168,13 @@
     }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 330px) {
     .navigation__list {
         gap: 14px;
+    }
+
+    .navigation__account {
+        display: contents;
     }
 
     .navigation__links {

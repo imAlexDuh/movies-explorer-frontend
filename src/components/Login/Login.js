@@ -20,6 +20,7 @@ export default function Login() {
                             <span className='field__caption'>E-mail</span>
                             <input
                                 className='form__input form__input_place_auth form__input_type_email'
+                                placeholder="Ваша почта"
                                 name="email"
                                 id="email"
                                 type="email"
@@ -32,9 +33,12 @@ export default function Login() {
                             <span className='field__caption'>Пароль</span>
                             <input
                                 className='form__input form__input_place_auth form__input_type_password'
+                                placeholder="Ваш пароль"
                                 name="password"
                                 id="password"
                                 type="password"
+                                minLength="2"
+                                maxLength="40"
                                 required
                                 onChange={handleInputChange}
                             >
