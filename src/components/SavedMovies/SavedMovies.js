@@ -17,6 +17,7 @@ export default function SavedMovies({ isLoading, onClickLike, isRequestInfo, set
       text: ''
     });
     filterSavedMovies(values);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
@@ -35,6 +36,7 @@ export default function SavedMovies({ isLoading, onClickLike, isRequestInfo, set
         });
       }
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [savedMoviesList]);
 
   return (

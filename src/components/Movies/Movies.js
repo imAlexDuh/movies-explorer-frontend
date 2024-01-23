@@ -37,6 +37,7 @@ export default function Movies({
         } else if (filterMoviesParams) {
           filterMovieList();
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
       }, []);
 
     return (

@@ -16,6 +16,7 @@ export default function Login({ isRequestInfo, setIsRequestInfo, onLogin }) {
         setIsRequestInfo({
             isOpen: false
         });
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     const emailPatternError = `${errors['email'] === "Введите данные в указанном формате." ? "Недействительный email адрес" : errors['email']}`;

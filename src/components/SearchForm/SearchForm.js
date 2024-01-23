@@ -19,10 +19,12 @@ export default function SearchForm({ values, handleInputChange, isValid, setIsVa
 
       useEffect(() => {
         setIsValid(true);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
       }, []);
 
       useEffect(() => {
           onSubmitSearch(values);
+          // eslint-disable-next-line react-hooks/exhaustive-deps
       }, [values.shorts]);
 
     return (

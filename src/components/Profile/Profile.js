@@ -14,6 +14,7 @@ export default function Profile({ isRequestInfo, setIsRequestInfo, handleEditUse
         setIsRequestInfo({
             isOpen: false
         });
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     const namePatternError = `${errors['name'] === "Введите данные в указанном формате." ? "Поле должно содержать только латиницу, кириллицу, пробел или дефис" : errors['name']}`;
@@ -48,6 +49,7 @@ export default function Profile({ isRequestInfo, setIsRequestInfo, handleEditUse
             { name: currentUser.name, email: currentUser.email },
             { name: "", email: "" }
         );
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [currentUser]);
 
     return (

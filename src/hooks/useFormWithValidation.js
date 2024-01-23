@@ -32,6 +32,7 @@ function useFormWithValidation() {
       setErrors(newErrors);
       setIsValid(newIsValid);
     },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [setValues, setErrors, setIsValid],
   );
 
