@@ -2,6 +2,7 @@ import './Header.css';
 import { Link, useLocation } from 'react-router-dom';
 import Navigation from '../Navigation/Navigation';
 import logo from '../../images/logotype.svg';
+import PropTypes from 'prop-types';
 
 export default function Header({ loggedIn, handleCircleClick, isCircleOpened }) {
 
@@ -26,3 +27,9 @@ export default function Header({ loggedIn, handleCircleClick, isCircleOpened }) 
     else
         return ('');
 }
+
+Header.propTypes = {
+    loggedIn: PropTypes.bool.isRequired,
+    isCircleOpened: PropTypes.bool.isRequired,
+    handleCircleClick: PropTypes.func.isRequired,
+  };

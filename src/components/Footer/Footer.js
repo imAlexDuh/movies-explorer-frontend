@@ -12,7 +12,7 @@ export default function Footer() {
                 <div className='footer__container'>
                     <h2 className='footer__subtitle'>Учебный проект Яндекс.Практикум Х BeatFilm.</h2>
                     <div className='footer__block'>
-                        <p className='footer__year'>&copy; 2023</p>
+                        <p className='footer__year'>&copy; 2024</p>
                         <ul className='footer__list'>
                             <li className='footer__item'>
                                 <a className='footer__link link' href='https://practicum.yandex.ru' target='_blank' rel="noreferrer">Яндекс.Практикум</a>
