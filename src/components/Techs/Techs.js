@@ -1,7 +1,7 @@
 import './Techs.css';
 
 export default function Techs() {
-    return (
+  return (
         <section className='tech'>
             <div className='tech__container'>
                 <h2 className='tech__title'>Технологии</h2>
@@ -18,5 +18,5 @@ export default function Techs() {
                 </ul>
             </div>
         </section>
-    )
+  );
 }

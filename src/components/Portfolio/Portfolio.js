@@ -2,7 +2,7 @@ import './Portfolio.css';
 import arrow from '../../images/portf__item-icon.svg';
 
 export default function Portfolio() {
-    return (
+  return (
         <section className='portf'>
             <div className='portf__container'>
                 <h2 className='portf__subtitle'>Портфолио</h2>
@@ -32,5 +32,5 @@ export default function Portfolio() {
                 </ul>
             </div>
         </section>
-    )
+  );
 }

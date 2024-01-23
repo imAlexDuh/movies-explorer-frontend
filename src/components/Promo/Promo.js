@@ -2,7 +2,7 @@ import './Promo.css';
 import logotype from '../../images/promo-logo.svg';
 
 export default function Promo() {
-    return (
+  return (
         <section className='promo'>
             <div className='promo__container'>
                 <div className='promo__about'>
@@ -13,5 +13,5 @@ export default function Promo() {
                 <img className='promo__logotype' src={logotype} alt="картинка с web'ами" />
             </div>
         </section>
-    )
+  );
 }

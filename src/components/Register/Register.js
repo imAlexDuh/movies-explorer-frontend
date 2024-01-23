@@ -1,37 +1,36 @@
 import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
 import './Register.css';
-import logotype from '../../images/logotype.svg';
 import PropTypes from 'prop-types';
+import logotype from '../../images/logotype.svg';
 import useFormWithValidation from '../../hooks/useFormWithValidation';
 import { NAME_REGEX, EMAIL_REGEX } from '../../utils/constants';
 
 export default function Register({ isRequestInfo, setIsRequestInfo, onRegister }) {
+  const {
+    values, handleInputChange, errors, isValid, resetForm,
+  } = useFormWithValidation();
 
-    const { values, handleInputChange, errors, isValid, resetForm, } = useFormWithValidation();
+  useEffect(() => {
+    setIsRequestInfo({
+      isOpen: false,
+    });
+  }, []);
 
-    useEffect(() => {
-        setIsRequestInfo({
-            isOpen: false
-        });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
-
-    const infoSpanClassName =
-        `request-info request-info_place_auth 
+  const infoSpanClassName = `request-info request-info_place_auth 
     ${isRequestInfo.success ? 'request-info_type_success' : 'request-info_type_fail'} 
     ${isRequestInfo.isOpen && 'request-info_active'}`;
 
-    const namePatternError = `${errors['name'] === "Введите данные в указанном формате." ? "Поле должно содержать только латиницу, кириллицу, пробел или дефис" : errors['name']}`;
-    const emailPatternError = `${errors['email'] === "Введите данные в указанном формате." ? "Недействительный email адрес" : errors['email']}`;
+  const namePatternError = `${errors.name === 'Введите данные в указанном формате.' ? 'Поле должно содержать только латиницу, кириллицу, пробел или дефис' : errors.name}`;
+  const emailPatternError = `${errors.email === 'Введите данные в указанном формате.' ? 'Недействительный email адрес' : errors.email}`;
 
-    function handleSubmit(evt) {
-        evt.preventDefault();
-        resetForm();
-        onRegister(values);
-    }
+  function handleSubmit(evt) {
+    evt.preventDefault();
+    resetForm();
+    onRegister(values);
+  }
 
-    return (
+  return (
         <main className="auth">
             <div className='auth__container'>
                 <Link to='/' className='logo_place_auth logo link'>
@@ -53,7 +52,7 @@ export default function Register({ isRequestInfo, setIsRequestInfo, onRegister }
                                 maxLength="40"
                                 onChange={handleInputChange}
                                 pattern={NAME_REGEX}
-                                value={values['name'] ?? ''}
+                                value={values.name ?? ''}
                             >
                             </input>
                         </label>
@@ -70,7 +69,7 @@ export default function Register({ isRequestInfo, setIsRequestInfo, onRegister }
                                 pattern={EMAIL_REGEX}
                             >
                             </input>
-                            <span className={`auth__error ${errors['name'] && 'auth__error_active'}`}>{namePatternError}</span>
+                            <span className={`auth__error ${errors.name && 'auth__error_active'}`}>{namePatternError}</span>
                         </label>
                         <label className='field form__auth-field field_type_last' htmlFor='email' >
                             <span className='field__caption'>Придумайте пароль</span>
@@ -82,11 +81,11 @@ export default function Register({ isRequestInfo, setIsRequestInfo, onRegister }
                                 type="password"
                                 minLength={6}
                                 required
-                                value={values['password'] ?? ''}
+                                value={values.password ?? ''}
                                 onChange={handleInputChange}
                             >
                             </input>
-                            <span className={`auth__error ${errors['email'] && 'auth__error_active'}`}>{emailPatternError}</span>
+                            <span className={`auth__error ${errors.email && 'auth__error_active'}`}>{emailPatternError}</span>
                         </label>
                     </div>
                     <span className={infoSpanClassName}>{isRequestInfo.text}</span>
@@ -94,7 +93,7 @@ export default function Register({ isRequestInfo, setIsRequestInfo, onRegister }
                         <li className='buttons__item buttons__item_place_auth'>
                             <button
                                 type="submit"
-                                className={`button button_place_auth`}
+                                className={'button button_place_auth'}
                                 disabled={!isValid}
                             >
                                 Зарегистрироваться
@@ -112,11 +111,11 @@ export default function Register({ isRequestInfo, setIsRequestInfo, onRegister }
                 </form>
             </div>
         </main>
-    );
+  );
 }
 
 Register.propTypes = {
-    isRequestInfo: PropTypes.object.isRequired,
-    setIsRequestInfo: PropTypes.func.isRequired,
-    onRegister: PropTypes.func.isRequired,
+  isRequestInfo: PropTypes.object.isRequired,
+  setIsRequestInfo: PropTypes.func.isRequired,
+  onRegister: PropTypes.func.isRequired,
 };

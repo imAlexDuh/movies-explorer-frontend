@@ -1,31 +1,30 @@
 import { useState, useEffect } from 'react';
 import { Route, Routes, Navigate, useNavigate } from 'react-router-dom';
-import { CurrentUserContext } from '../../contexts/CurrentUserContext'
+import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 
 import './App.css';
 
-import { api } from '../../utils/MainApi.js'
+import { api } from '../../utils/MainApi.js';
 import { beatApi } from '../../utils/MoviesApi.js';
 
-import Header from '../Header/Header'
+import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import Main from '../Main/Main';
 import Movies from '../Movies/Movies';
 import SavedMovies from '../SavedMovies/SavedMovies';
-import Login from '../Login/Login'
-import Register from '../Register/Register'
-import Profile from '../Profile/Profile'
-import NotFound from '../NotFound/NotFound'
-import ProtectedRoute from '../ProtectedRoute/ProtectedRoute'
-
+import Login from '../Login/Login';
+import Register from '../Register/Register';
+import Profile from '../Profile/Profile';
+import NotFound from '../NotFound/NotFound';
+import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 
 export default function App() {
   const navigate = useNavigate();
   const [currentUser, setCurrentUser] = useState(
     {
       name: '',
-      email: ''
-    }
+      email: '',
+    },
   );
   const [isCircleOpened, setIsCircleOpened] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
@@ -34,14 +33,14 @@ export default function App() {
   const [isRequestInfo, setIsRequestInfo] = useState({
     isOpen: false,
     success: false,
-    text: ''
-  })
+    text: '',
+  });
 
   const [filteredMoviesList, setFilteredMoviesList] = useState([]);
   const [savedMoviesList, setSavedMoviesList] = useState([]);
 
   function onClickLike(movie, isLiked, setIsLiked) {
-    const jwt = localStorage.getItem("token");
+    const jwt = localStorage.getItem('token');
     if (jwt) {
       if (isLiked) {
         api.deleteSavedMovie(movie._id, jwt)
@@ -49,7 +48,7 @@ export default function App() {
             setIsLiked(false);
             movie._id = undefined;
             setSavedMoviesList(
-              savedMoviesList.filter((film) => film._id !== movie._id)
+              savedMoviesList.filter((film) => film._id !== movie._id),
             );
           })
           .catch((err) => console.log(`Ошибка: ${err}`));
@@ -65,7 +64,7 @@ export default function App() {
   }
 
   function renderSavedMoviesIds(moviesList) {
-    const jwt = localStorage.getItem("token");
+    const jwt = localStorage.getItem('token');
     if (isLoggedIn && jwt) {
       setIsLoading(true);
       api.getSavedMovies(jwt)
@@ -87,15 +86,15 @@ export default function App() {
           setIsRequestInfo({
             isOpen: true,
             success: false,
-            text: `Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз`
-          })
+            text: 'Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз',
+          });
         })
         .finally(() => setIsLoading(false));
     }
   }
 
   function filterSavedMovies(filters) {
-    const jwt = localStorage.getItem("token");
+    const jwt = localStorage.getItem('token');
     if (isLoggedIn && jwt) {
       setIsLoading(true);
       api.getSavedMovies(jwt)
@@ -107,24 +106,20 @@ export default function App() {
 
             if (onlyShorts) {
               filteredSavedMovies = res
-                .filter((movie) => {
-                  return movie.duration <= 40;
-                })
+                .filter((movie) => movie.duration <= 40);
               if (movieName) {
                 filteredSavedMovies = filteredSavedMovies
-                  .filter(movie => movie.nameRU.toLowerCase().includes(movieName.toLowerCase()))
+                  .filter((movie) => movie.nameRU.toLowerCase().includes(movieName.toLowerCase()));
               }
             } else {
               filteredSavedMovies = res
-                .filter((movie) => {
-                  return movie.nameRU.toLowerCase().includes(movieName.toLowerCase())
-                })
+                .filter((movie) => movie.nameRU.toLowerCase().includes(movieName.toLowerCase()));
             }
             if (filteredSavedMovies.length === 0) {
               setIsRequestInfo({
                 isOpen: true,
                 success: false,
-                text: 'Ничего не найдено'
+                text: 'Ничего не найдено',
               });
               setSavedMoviesList([]);
             }
@@ -134,7 +129,7 @@ export default function App() {
               setIsRequestInfo({
                 isOpen: true,
                 success: false,
-                text: 'Вы не сохранили ни одного фильма.'
+                text: 'Вы не сохранили ни одного фильма.',
               });
               setSavedMoviesList([]);
             }
@@ -144,7 +139,7 @@ export default function App() {
             setIsRequestInfo({
               isOpen: false,
               success: true,
-              text: ''
+              text: '',
             });
             setSavedMoviesList(filteredSavedMovies);
           }
@@ -153,8 +148,8 @@ export default function App() {
           setIsRequestInfo({
             isOpen: true,
             success: false,
-            text: `Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз`
-          })
+            text: 'Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз',
+          });
         })
         .finally(() => setIsLoading(false));
     }
@@ -164,26 +159,25 @@ export default function App() {
     const movieList = JSON.parse(localStorage.getItem('movieList'));
     if (!movieList) {
       return beatApi.getMovies();
-    } else {
-      return movieList;
     }
+    return movieList;
   }
 
   function filterMovieList() {
     setIsRequestInfo({
       isOpen: false,
       success: false,
-      text: ''
+      text: '',
     });
 
-    const jwt = localStorage.getItem("token");
+    const jwt = localStorage.getItem('token');
     if (jwt) {
       setIsLoading(true);
       Promise.all([getMovieList(), api.getSavedMovies(jwt)])
         .then((promisesResults) => {
           const [movies, savedMovies] = promisesResults;
           const filterMoviesParams = JSON.parse(
-            localStorage.getItem("filterParams")
+            localStorage.getItem('filterParams'),
           );
 
           let filteredMovies;
@@ -191,25 +185,20 @@ export default function App() {
             const movieName = filterMoviesParams.film;
             const onlyShorts = filterMoviesParams.shorts ?? false;
 
-
             if (onlyShorts) {
               filteredMovies = movies
-                .filter((movie) => {
-                  return movie.duration <= 40;
-                })
+                .filter((movie) => movie.duration <= 40);
               if (movieName) {
                 filteredMovies = filteredMovies
-                  .filter(movie => movie.nameRU.toLowerCase().includes(movieName.toLowerCase()))
+                  .filter((movie) => movie.nameRU.toLowerCase().includes(movieName.toLowerCase()));
               }
             } else {
               filteredMovies = movies
-                .filter((movie) => {
-                  return movie.nameRU.toLowerCase().includes(movieName.toLowerCase())
-                })
+                .filter((movie) => movie.nameRU.toLowerCase().includes(movieName.toLowerCase()));
             }
             localStorage.setItem(
-              "filteredMoviesList",
-              JSON.stringify(filteredMovies)
+              'filteredMoviesList',
+              JSON.stringify(filteredMovies),
             );
 
             const savedMoviesIds = {};
@@ -222,24 +211,23 @@ export default function App() {
               return movie;
             });
 
-
             if (filteredMovies.length === 0) {
               setIsRequestInfo({
                 isOpen: true,
                 success: false,
-                text: 'Ничего не найдено'
+                text: 'Ничего не найдено',
               });
               setFilteredMoviesList([]);
             } else {
               setIsRequestInfo({
                 isOpen: false,
                 success: true,
-                text: ''
+                text: '',
               });
               setFilteredMoviesList(filteredMovies);
             }
           } else {
-            localStorage.setItem("filteredMoviesList", []);
+            localStorage.setItem('filteredMoviesList', []);
             setFilteredMoviesList([]);
           }
         })
@@ -247,8 +235,8 @@ export default function App() {
           setIsRequestInfo({
             isOpen: true,
             success: false,
-            text: `Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз`
-          })
+            text: 'Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз',
+          });
         })
         .finally(() => setIsLoading(false));
     }
@@ -256,7 +244,7 @@ export default function App() {
 
   function onSubmitSearch(values) {
     if (values.film) {
-      localStorage.setItem("filterParams", JSON.stringify(values));
+      localStorage.setItem('filterParams', JSON.stringify(values));
       filterMovieList();
     }
   }
@@ -265,9 +253,8 @@ export default function App() {
     filterSavedMovies(values);
   }
 
-
   function tokenCheck() {
-    const jwt = localStorage.getItem("token");
+    const jwt = localStorage.getItem('token');
     if (jwt) {
       api.checkToken(jwt)
         .then((res) => {
@@ -275,10 +262,10 @@ export default function App() {
           setIsLoggedIn(true);
         })
         .catch((err) => {
-          console.log("Ошибка:" + err);
-          localStorage.removeItem("token");
+          console.log(`Ошибка:${err}`);
+          localStorage.removeItem('token');
           setIsLoggedIn(false);
-        })
+        });
     } else {
       setIsLoggedIn(false);
     }
@@ -290,13 +277,13 @@ export default function App() {
 
   function handleSignOut() {
     setIsLoggedIn(false);
-    localStorage.removeItem("token");
-    localStorage.removeItem("filterParams");
-    localStorage.removeItem("movieList");
-    localStorage.removeItem("filteredMoviesList");
+    localStorage.removeItem('token');
+    localStorage.removeItem('filterParams');
+    localStorage.removeItem('movieList');
+    localStorage.removeItem('filteredMoviesList');
     setFilteredMoviesList([]);
     setCurrentUser({});
-    navigate("/");
+    navigate('/');
   }
 
   function handleCircleClick() {
@@ -304,34 +291,32 @@ export default function App() {
   }
 
   function handleLogin(values) {
-
     api.login(values)
       .then(() => {
-        const jwt = localStorage.getItem("token");
+        const jwt = localStorage.getItem('token');
         api.getUserInfo(jwt)
           .then((data) => {
             setCurrentUser(data.user);
             setIsLoggedIn(true);
-            navigate("/movies");
+            navigate('/movies');
           })
           .catch((err) => {
             setIsRequestInfo({
               isOpen: true,
-              text: err
+              text: err,
             });
-          })
+          });
       })
       .catch((err) => {
         setIsRequestInfo({
           isOpen: true,
           success: false,
-          text: err
+          text: err,
         });
-      })
+      });
   }
 
   function handleRegister(values) {
-
     api.register(values)
       .then(() => {
         handleLogin(values);
@@ -340,29 +325,29 @@ export default function App() {
         setIsRequestInfo({
           isOpen: true,
           success: false,
-          text: err
+          text: err,
         });
-      })
+      });
   }
 
   function handleEditUser(values) {
-    const jwt = localStorage.getItem("token");
+    const jwt = localStorage.getItem('token');
     api.sendUserInfo(values, jwt)
       .then((data) => {
         setCurrentUser(data.user);
         setIsRequestInfo({
           isOpen: true,
           success: true,
-          text: 'Данные успешно изменены'
+          text: 'Данные успешно изменены',
         });
       })
       .catch((err) => {
         setIsRequestInfo({
           isOpen: true,
           success: false,
-          text: err
+          text: err,
         });
-      })
+      });
   }
 
   return (
@@ -379,23 +364,23 @@ export default function App() {
               <Route exact path='/' element={<Main />} />
               <Route path="/signup"
                 element={
-                  !isLoggedIn ?
-                    <Register
+                  !isLoggedIn
+                    ? <Register
                       isRequestInfo={isRequestInfo}
                       setIsRequestInfo={setIsRequestInfo}
                       onRegister={handleRegister}
-                    /> :
-                    <Navigate to="/" />}
+                    />
+                    : <Navigate to="/" />}
               />
               <Route path="/signin"
                 element={
-                  !isLoggedIn ?
-                    <Login
+                  !isLoggedIn
+                    ? <Login
                       isRequestInfo={isRequestInfo}
                       setIsRequestInfo={setIsRequestInfo}
                       onLogin={handleLogin}
-                    /> :
-                    <Navigate to="/" />}
+                    />
+                    : <Navigate to="/" />}
               />
               <Route path="/movies"
                 element={

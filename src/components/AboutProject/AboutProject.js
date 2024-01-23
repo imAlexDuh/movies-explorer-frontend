@@ -1,7 +1,7 @@
 import './AboutProject.css';
 
 export default function AboutProject() {
-    return (
+  return (
         <section className='about'>
             <div className='about__container'>
                 <h2 className='about__title'>О проекте</h2>
@@ -28,5 +28,5 @@ export default function AboutProject() {
 
             </div>
         </section>
-    )
+  );
 }

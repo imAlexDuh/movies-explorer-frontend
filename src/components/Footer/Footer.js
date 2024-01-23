@@ -2,12 +2,11 @@ import './Footer.css';
 import { useLocation } from 'react-router-dom';
 
 export default function Footer() {
+  const footerEndpoints = ['/movies', '/saved-movies', '/'];
+  const location = useLocation();
 
-    const footerEndpoints = ['/movies', '/saved-movies', '/'];
-    const location = useLocation();
-
-    if (footerEndpoints.includes(location.pathname))
-        return (
+  if (footerEndpoints.includes(location.pathname)) {
+    return (
             <footer className='footer'>
                 <div className='footer__container'>
                     <h2 className='footer__subtitle'>Учебный проект Яндекс.Практикум Х BeatFilm.</h2>
@@ -24,5 +23,6 @@ export default function Footer() {
                     </div>
                 </div>
             </footer>
-        )
+    );
+  }
 }

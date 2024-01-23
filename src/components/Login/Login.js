@@ -1,38 +1,35 @@
 import './Login.css';
 import { Link } from 'react-router-dom';
-import logotype from '../../images/logotype.svg';
 import { useEffect } from 'react';
-import useFormWithValidation from '../../hooks/useFormWithValidation';
 import PropTypes from 'prop-types';
-import { EMAIL_REGEX } from '../../utils/constants'
+import logotype from '../../images/logotype.svg';
+import useFormWithValidation from '../../hooks/useFormWithValidation';
+import { EMAIL_REGEX } from '../../utils/constants';
 
 export default function Login({ isRequestInfo, setIsRequestInfo, onLogin }) {
+  const {
+    values, handleInputChange, errors, isValid, resetForm,
+  } = useFormWithValidation();
 
-    const {
-        values, handleInputChange, errors, isValid, resetForm,
-    } = useFormWithValidation();
+  useEffect(() => {
+    setIsRequestInfo({
+      isOpen: false,
+    });
+  }, []);
 
-    useEffect(() => {
-        setIsRequestInfo({
-            isOpen: false
-        });
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
+  const emailPatternError = `${errors.email === 'Введите данные в указанном формате.' ? 'Недействительный email адрес' : errors.email}`;
 
-    const emailPatternError = `${errors['email'] === "Введите данные в указанном формате." ? "Недействительный email адрес" : errors['email']}`;
-
-    const infoSpanClassName =
-        `request-info request-info_place_auth 
+  const infoSpanClassName = `request-info request-info_place_auth 
     ${isRequestInfo.success ? 'request-info_type_success' : 'request-info_type_fail'} 
     ${isRequestInfo.isOpen && 'request-info_active'}`;
 
-    function handleSubmit(evt) {
-        evt.preventDefault();
-        onLogin({ email: values.email, password: values.password });
-        resetForm();
-    }
+  function handleSubmit(evt) {
+    evt.preventDefault();
+    onLogin({ email: values.email, password: values.password });
+    resetForm();
+  }
 
-    return (
+  return (
         <main className='auth'>
             <div className='auth__container'>
                 <Link to='/' className='logo logo_place_auth link'>
@@ -52,10 +49,10 @@ export default function Login({ isRequestInfo, setIsRequestInfo, onLogin }) {
                                 required
                                 onChange={handleInputChange}
                                 pattern={EMAIL_REGEX}
-                                value={values['email'] ?? ''}
+                                value={values.email ?? ''}
                             >
                             </input>
-                            <span className={`auth__error ${errors['email'] && 'auth__error_active'}`}>{emailPatternError}</span>
+                            <span className={`auth__error ${errors.email && 'auth__error_active'}`}>{emailPatternError}</span>
                         </label>
                         <label className='field form__auth-field field_type_last' htmlFor='password' >
                             <span className='field__caption'>Пароль</span>
@@ -69,10 +66,10 @@ export default function Login({ isRequestInfo, setIsRequestInfo, onLogin }) {
                                 maxLength="20"
                                 required
                                 onChange={handleInputChange}
-                                value={values['password'] ?? ''}
+                                value={values.password ?? ''}
                             >
                             </input>
-                            <span className={`auth__error ${errors['password'] && 'auth__error_active'}`}>{errors['password']}</span>
+                            <span className={`auth__error ${errors.password && 'auth__error_active'}`}>{errors.password}</span>
                         </label>
                     </div>
                     <span className={infoSpanClassName}>{isRequestInfo.text}</span>
@@ -80,7 +77,7 @@ export default function Login({ isRequestInfo, setIsRequestInfo, onLogin }) {
                         <li className='buttons__item buttons__item_place_auth'>
                             <button
                                 type="submit"
-                                className={`button button_place_auth`}
+                                className={'button button_place_auth'}
                                 disabled={!isValid}
                             >
                                 Войти
@@ -98,11 +95,11 @@ export default function Login({ isRequestInfo, setIsRequestInfo, onLogin }) {
                 </form>
             </div>
         </main>
-    );
+  );
 }
 
 Login.propTypes = {
-    isRequestInfo: PropTypes.object.isRequired,
-    setIsRequestInfo: PropTypes.func.isRequired,
-    onLogin: PropTypes.func.isRequired,
+  isRequestInfo: PropTypes.object.isRequired,
+  setIsRequestInfo: PropTypes.func.isRequired,
+  onLogin: PropTypes.func.isRequired,
 };

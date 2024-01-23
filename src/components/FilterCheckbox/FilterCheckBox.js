@@ -2,7 +2,7 @@ import './FilterCheckBox.css';
 import PropTypes from 'prop-types';
 
 export default function FilterCheckbox({ onChange, values }) {
-    return (
+  return (
         <div className='checkbox'>
             <label className="filter">
                 <input
@@ -17,10 +17,10 @@ export default function FilterCheckbox({ onChange, values }) {
             </label>
             <span className="checkbox__text">Короткометражки</span>
         </div>
-    );
+  );
 }
 
 FilterCheckbox.propTypes = {
-    values: PropTypes.object.isRequired,
-    onChange: PropTypes.func.isRequired,
+  values: PropTypes.object.isRequired,
+  onChange: PropTypes.func.isRequired,
 };

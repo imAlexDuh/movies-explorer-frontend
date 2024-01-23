@@ -1,38 +1,36 @@
+/* eslint-disable no-return-assign */
 import React, { useCallback } from 'react';
 import { CurrentUserContext } from '../contexts/CurrentUserContext';
 
-
 function useFormWithValidation() {
-  
   const currentUser = React.useContext(CurrentUserContext);
-  const [values, setValues] = React.useState({ name: currentUser.name, email: currentUser.email});
+  const [values, setValues] = React.useState({ name: currentUser.name, email: currentUser.email });
   const [errors, setErrors] = React.useState({});
   const [isValid, setIsValid] = React.useState(false);
 
   const handleInputChange = (evt) => {
-      const input = evt.target;
-      const { name, type, checked } = input;
-      let { value } = input;
-      let error = input.validationMessage;
+    const input = evt.target;
+    const { name, type, checked } = input;
+    let { value } = input;
+    const error = input.validationMessage;
 
-      if(type === "checkbox") {
-        value = checked;
-      }
-      
-      const isFormValid = input.closest('form').checkValidity();
-
-      setIsValid(isFormValid);
-      setValues({ ...values, [name]: value });
-      setErrors({ ...errors, [name]: error });
+    if (type === 'checkbox') {
+      value = checked;
     }
 
+    const isFormValid = input.closest('form').checkValidity();
+
+    setIsValid(isFormValid);
+    setValues({ ...values, [name]: value });
+    setErrors({ ...errors, [name]: error });
+  };
+
   const resetForm = useCallback(
-    (newValues = { name: currentUser.name, email: currentUser.email}, newErrors = {}, newIsValid = false) => {
+    (newValues = { name: currentUser.name, email: currentUser.email }, newErrors = {}, newIsValid = false) => {
       setValues(newValues);
       setErrors(newErrors);
       setIsValid(newIsValid);
     },
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     [setValues, setErrors, setIsValid],
   );
 
