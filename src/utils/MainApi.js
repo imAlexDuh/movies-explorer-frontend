@@ -107,7 +107,7 @@ class Api {
 }
 
 const api = new Api({
-  baseUrl: 'http://localhost:3001',
+  baseUrl: 'https://api.imalexdudie.nomoredomainsmonster.ru',
   credentials: 'include',
   headers: {
     Accept: 'application/json',
