@@ -30,7 +30,7 @@ export default function SearchForm({
         <div className="search">
             <form className="search__container" onSubmit={handleSearch} >
                 <div className="search__form" name="search-form" >
-                    <input className="search__input" name="film" type="text" placeholder="Поиск" onChange={handleInputChange} value={values.film || ''} required />
+                    <input className="search__input" name="film" type="text" placeholder="Поиск" onChange={handleInputChange} value={values.film || ''} />
                     <button className="button search__button" type="submit" disabled={!isValid}>Найти</button>
                     <span className={`auth__error ${isError && 'auth__error_active'}`}>Нужно что-нибудь написать</span>
                 </div>

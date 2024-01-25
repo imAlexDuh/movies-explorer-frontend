@@ -2,6 +2,7 @@ import './MoviesCard.css';
 import { useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { useState } from 'react';
+import { countDuration } from '../../utils/constants'
 
 export default function MoviesCard({ movie, onClickLike }) {
   const page = useLocation().pathname;
@@ -24,15 +25,6 @@ export default function MoviesCard({ movie, onClickLike }) {
   function handleClickLike(evt) {
     evt.stopPropagation();
     onClickLike(movie, isLiked, setIsLiked);
-  }
-
-  function countDuration(duration) {
-    const hours = Math.trunc(duration / 60);
-    const minutes = duration % 60;
-    if (hours === 0) {
-      return `${minutes}м`;
-    }
-    return `${hours}ч ${minutes}м`;
   }
 
   return (

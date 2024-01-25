@@ -9,18 +9,17 @@ export default function MoviesCardList({ isRequestInfo, movies, onClickLike }) {
 
   function countShowMovies() {
     const width = window.innerWidth;
-    if (width >= 1280) {
+    if (width >= 1280 && location.pathname === "/movies") {
       setShowMovies(16);
       setAddMovies(4);
-    } else if (width >= 950) {
+    } else if (width >= 950 && location.pathname === "/movies") {
       setShowMovies(12);
       setAddMovies(3);
-    } else if (width >= 660) {
+    } else if (width >= 660 && location.pathname === "/movies") {
       setShowMovies(8);
       setAddMovies(2);
-    } else {
-      setShowMovies(5);
-      setAddMovies(2);
+    } else if (location.pathname === "/saved-movies") {
+      setShowMovies(100);
     }
   }
 
@@ -39,23 +38,21 @@ export default function MoviesCardList({ isRequestInfo, movies, onClickLike }) {
   }
 
   return (
-        <div className="movies__section">
-            <div className='movies__list'>
-                <p className={`search__error ${isRequestInfo.isOpen && 'search__error_active'}`}>{isRequestInfo.text}</p>
-                <ul className='movies__items'>
-                    {movies.slice(0, showMovies).map((movie) => (
-                        <li key={movie._id ?? movie.id} className='movies__item'>
-                            <MoviesCard className="movieCard" movie={movie} onClickLike={onClickLike} />
-                        </li>
-                    ))}
-                </ul>
-                {movies.length > showMovies ? (
-                    <button type="button" className="button movies__button" onClick={handleClickShowMore} >Ещё</button>
-                ) : (
-                  ''
-                )}
-            </div>
-        </div>
+    <div className="movies__section">
+      <div className='movies__list'>
+        <p className={`search__error ${isRequestInfo.isOpen && 'search__error_active'}`}>{isRequestInfo.text}</p>
+        <ul className='movies__items'>
+          {movies.slice(0, showMovies).map((movie) => (
+            <li key={movie._id ?? movie.id} className='movies__item'>
+              <MoviesCard className="movieCard" movie={movie} onClickLike={onClickLike} />
+            </li>
+          ))}
+        </ul>
+        {location.pathname === "/movies" && movies.length > showMovies ? (
+          <button type="button" className="button movies__button" onClick={handleClickShowMore} >Ещё</button>
+        ) : ('')}
+      </div>
+    </div>
   );
 }
 

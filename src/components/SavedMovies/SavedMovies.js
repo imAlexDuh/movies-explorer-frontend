@@ -9,6 +9,7 @@ import useFormWithValidation from '../../hooks/useFormWithValidation';
 export default function SavedMovies({
   isLoading, onClickLike, isRequestInfo, setIsRequestInfo, savedMoviesList, filterSavedMovies,
 }) {
+
   const {
     values, isValid, setIsValid, handleInputChange,
   } = useFormWithValidation();
